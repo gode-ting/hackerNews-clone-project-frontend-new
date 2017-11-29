@@ -1,5 +1,6 @@
 // Dependencies
 const express = require('express');
+const cookieParser = require('cookie-parser')
 const cnf = require('cnf');
 const sass = require('node-sass-middleware');
 
@@ -14,6 +15,7 @@ async function main() {
 
 	const app = express();
 
+	app.use(cookieParser());
 	// Load middleware
 	app.use(
 		sass({

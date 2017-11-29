@@ -1,0 +1,19 @@
+mixin table(...modifiers)
+	- modifiers = modifiers.map(modifier => `table--${modifier}`);
+	table(class=(['table', ...modifiers]))&attributes(attributes)
+		block
+
+mixin table__body(...modifiers)
+	- modifiers = modifiers.map(modifier => `table__body--${modifier}`);
+	tbody(class=(['table__body', ...modifiers]))&attributes(attributes)
+		block
+
+mixin table__row(...modifiers)
+	- modifiers = modifiers.map(modifier => `table__row--${modifier}`);
+	tr(class=(['table__row', ...modifiers]))&attributes(attributes)
+		block
+
+mixin table__td(...modifiers)
+	- modifiers = modifiers.map(modifier => `table__td--${modifier}`);
+	td(class=(['table__td', ...modifiers]))&attributes(attributes)
+		block

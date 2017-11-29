@@ -4,4 +4,36 @@ block title
 	- title= title
 
 block content
-	div test box
+	h1 Recent posts
+	+table(id="allPosts")
+		+table__body(id="allPostsBody")
+			each post, index in allPosts
+				-
+					var postTitle = post.post_title;
+					var postUrl = post.post_url;
+					var karma = post.karma;
+					var username = post.username
+					var id = post.id;
+					var tableLength = allPosts.length -1;
+				+table__row("top")
+					+table__td("number")
+						+span= index + 1
+					+table__td("upvote")
+						+link(href=`/vote?id=${id}`) ▲
+					+table__td("title")
+						if postTitle && postUrl
+							+link(href="")= `${postTitle} (${postUrl})`
+				+table__row("bottom")
+					+table__td("empty")
+					+table__td("info")(colspan=2)
+						+text= `${karma} points by`
+						+space
+						+link()(href=`/user?username=${username}`)= username
+						+space
+						+text |
+						+space
+						+link()(href=`/item?id=${id}`) show number of comments
+				// Dont add a spacer efter last element
+				if index !== tableLength
+					+table__row("spacer")(colspan=3)
+						+table__td("spacer")(colspan=3)

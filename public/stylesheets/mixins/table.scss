@@ -1,0 +1,65 @@
+.table #allPosts,
+.table .table__row--top td,
+.table .table__row--bottom td {
+	border: none;
+}
+
+.table {
+	background-color: #343a40!important;
+	color: #fff;
+	&__body {
+
+	}
+
+	&__row {
+		&--top {
+
+		}
+
+		&--bottom {
+			font-size: 12px;
+			letter-spacing: 0.4px;
+		}
+
+		&--spacer {
+			td {
+				margin-top: 0.15rem;
+				padding: 0.25rem;
+			}
+		}
+	}
+
+	&__td {
+		&--number {
+			width: 2%;
+		}
+
+		&--upvote {
+			width: 3%;
+		}
+
+		&--title {
+
+		}
+
+
+
+		&--empty {
+
+		}
+
+		&--info {
+
+		}
+
+	}
+
+	a {
+		color: rgba(255,255,255,.5) !important;
+
+		&:hover {
+			color: rgba(255,255,255,.75) !important;
+			text-decoration: none !important;
+		}
+	}
+}
