@@ -1,0 +1,10 @@
+{
+	"extends": "@debitoor/eslint-config-debitoor",
+	"globals": {
+		"Request": true,
+		"Headers": true,
+		"fetch": true,
+		"document": true,
+		"window": true
+	}
+}

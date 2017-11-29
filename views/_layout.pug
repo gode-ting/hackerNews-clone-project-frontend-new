@@ -1,0 +1,13 @@
+extends ../public/_layout.pug
+
+block body
+	header.page-header
+		include ../public/_header.pug
+	main
+		.container(role="main")
+			//- #divUnauthorized
+			//- 	+alert("error") You're not authorized
+			block content
+	include ../public/_footer.pug
+block javascripts
+	

@@ -1,0 +1,13 @@
+extends _layout.pug
+
+block title
+	- title= title
+
+block description
+	- description= description
+
+block content
+	h3 Recent comments
+
+	table.table.table--allComments#allComments
+		tbody#allCommentsBody
