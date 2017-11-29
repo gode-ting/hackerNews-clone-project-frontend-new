@@ -1,0 +1,4 @@
+mixin button(...modifiers)
+	- modifiers = modifiers.map(modifier => `button--${modifier}`);
+	button(class=(['button', ...modifiers]))&attributes(attributes)
+		block

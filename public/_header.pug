@@ -8,5 +8,8 @@ nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
 				a.nav-link.top-nav__link#top-nav__link-comments(href='/comments') comments
 			li.nav-item
 				a.nav-link.top-nav__link#top-nav__link-submit(href='/submit') submit
-		+link("button", "login")(id="loginButton" href="/login") Login
-		+link("button", "logout")(id="logoutButton" href="/" onclick="logoutUser()") Logout
+		if authenticated
+			form(action="/auth/logout" method="GET")
+				+button("logout")(type="submit") Logout
+		if !authenticated
+			+link("button", "login")(id="loginButton" href="/login") Login

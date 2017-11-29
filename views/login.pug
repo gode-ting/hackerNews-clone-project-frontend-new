@@ -32,7 +32,7 @@ block content
 					.form-group
 						input#passwordSignup.form-control(type="password", placeholder="Password" required name="password")
 						small#usernameHelp.form-text.text-muted We"ll never share your credentials with anyone else.
-					button.btn.btn-primary(type="submit" value="Submit") Signup
+					button.btn.btn-primary(type="submit") Signup
 	if signupSuccess
 		+alert("success")= signupSuccess
 		.col-sm

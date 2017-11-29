@@ -1,0 +1,17 @@
+.button {
+	&--logout {
+		color: #17a2b8; 
+		background: transparent;
+		border: none;
+		padding: .375rem .75rem;
+		font-size: 1rem;
+		line-height: 1.5;
+		border-radius: .25rem;
+		
+		&:hover {
+			color: #fff;
+			background-color: #17a2b8;
+			cursor: pointer;
+		}
+	}
+}

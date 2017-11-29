@@ -12,24 +12,23 @@ block content
 	.row
 		.col-sm
 		.col-sm-6
-			.form-group
-				label(for="titleSubmit") Title
-				input.form-control#titleSubmit(type="text" placeholder="title")
-			.form-group
-				label(for="urlSubmit") Url
-				input.form-control#urlSubmit(type="text" placeholder="url")
-				</br>
-			.form-group
-				+paragraph ... Or
-			.form-group
-				label(for="textSubmit") Text
-				input.form-control#textSubmit(type="text" placeholder="text")
-		.col-sm
-	.row
-		.col-sm
-		.col-sm-6
-			+paragraph("muted").mb-3 Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.
-			button.btn.btn-primary(type="button" onClick="submitPost()") Submit
+			form(action="/make-submit" method="POST")
+				.form-group
+					label(for="titleSubmit") Title
+					input.form-control#titleSubmit(type="text" placeholder="title" name="title")
+				.form-group
+					+paragraph("strong") And
+				.form-group
+					label(for="urlSubmit") Url
+					input.form-control#urlSubmit(type="text" placeholder="url" name="url")
+					</br>
+				.form-group
+					+paragraph("strong") ... Or
+				.form-group
+					label(for="textSubmit") Text
+					input.form-control#textSubmit(type="text" placeholder="text" name="text")
+				+paragraph("muted").mb-3 Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.
+				button.btn.btn-primary(type="submit") Submit
 		.col-sm
 	.row
 		.col-sm

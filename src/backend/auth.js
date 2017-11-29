@@ -2,6 +2,12 @@ const router = require('express').Router();
 const cnf = require('cnf');
 const request = require('request');
 
+router.get('/logout', (req, res) => {
+	res.clearCookie('token');
+	res.clearCookie('username');
+	res.redirect('/');
+});
+
 router.post('/signup', async (req, res) => {
 
 	const username = req.body.username;
