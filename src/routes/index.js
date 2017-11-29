@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const cnf = require('cnf');
 const request = require('request');
+const authenticate = require('../middleware/authenticate');
 
 router.get('/', async (req, res) => {
 	const allPosts = await loadPosts();
 	const allPostsJson = JSON.parse(allPosts);
-	console.log(allPostsJson);
+	const authenticated = authenticate.isUserAuthorized(req);
+	console.log(authenticated);
 	res.render('index', {
 		title: 'HackerNewz | Gode ting',
 		description: 'Gode ting Cphbusiness Denmark school project',
@@ -18,7 +20,6 @@ function loadPosts() {
 	const allPostsEndpoint = cnf.endpoints.allPosts;
 	const endpoint = backend + allPostsEndpoint;
 	const method = 'get';
-	console.log(endpoint);
 	return new Promise((resolve, reject) => {
 		request.get({
 			uri: endpoint,

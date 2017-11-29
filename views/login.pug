@@ -11,27 +11,31 @@ block content
 	h1 Login
 	.row
 		.col-sm
-			form(id="login-form" name="login")
+			form(id="login-form" name="login" action="/auth/login" method="POST")
 				.form-group
-					input#usernameLogin.form-control(type="text", aria-describedby="usernameHelp", placeholder="Enter username" required)
+					input#usernameLogin.form-control(type="text", aria-describedby="usernameHelp", placeholder="Enter username" name="username" required)
 				.form-group
 					input#passwordLogin.form-control(type="password", placeholder="Password" name="password" required)
 					small#usernameHelp.form-text.text-muted We"ll never share your credentials with anyone else.
-				button.btn.btn-primary(type="button" value="Submit" onClick="loginUser()") Login
+				button.btn.btn-primary(type="submit" value="Submit") Login
 		.col-sm
 			+alert("error", "hidden")(id="loginError") Something went wrong. Please try again
 			+alert("success", "hidden")(id="loginSuccess")
 	+hr("login-signup")
-	h3 ... Or create a new account
-	.row
+	if !signupSuccess
+		h3 ... Or create a new account
+		.row
+			.col-sm
+				form(id="signup-form" name="signup" action="/auth/signup" method="POST")
+					.form-group
+						input#usernameSignup.form-control(type="text", aria-describedby="usernameHelp", placeholder="Enter username" name="username" required)
+					.form-group
+						input#passwordSignup.form-control(type="password", placeholder="Password" required name="password")
+						small#usernameHelp.form-text.text-muted We"ll never share your credentials with anyone else.
+					button.btn.btn-primary(type="submit" value="Submit") Signup
+	if signupSuccess
+		+alert("success")= signupSuccess
 		.col-sm
-			form(id="signup-form" name="signup")
-				.form-group
-					input#usernameSignup.form-control(type="text", aria-describedby="usernameHelp", placeholder="Enter username" required)
-				.form-group
-					input#passwordSignup.form-control(type="password", placeholder="Password" required)
-					small#usernameHelp.form-text.text-muted We"ll never share your credentials with anyone else.
-				button.btn.btn-primary(type="button" value="Submit" onClick="signupUser()") Signup
-		.col-sm
+			- console.log('Signup success: ', signupSuccess);
 			+alert("error", "hidden")(id="signupError") Something went wrong. Please try again
 			+alert("success", "hidden")(id="signupSuccess") Success! Successfully signed up

@@ -2,12 +2,12 @@ const router = require('express').Router();
 const authenticate = require('../middleware/authenticate');
 
 router.get('/', (req, res) => {
-	const usernameCookie = req.cookies['username'];
-	const tokenCookie = req.cookies['token'];
+	const isUserAuthorized = authenticate.isUserAuthorized(req);
 
-	if (!usernameCookie && !tokenCookie) {
-		res.render('unauthorized', { title: '', description: '' });
+	if (!isUserAuthorized) {
+		return authenticate.notAuthenticated(res);
 	}
+
 	res.render('submit', {
 		title: '',
 		description: ''

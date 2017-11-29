@@ -1,7 +1,14 @@
 extends _layout.pug
 
 block title
-	- title= title
+	- title= "Gode ting"
 
 block content
-	+alert("error") You're not authorized. Please signup or login, and try again.
+	+alert("error") You're not authorized. Please
+		+space
+		+link()(href="/login") signup
+		+space
+		+text or
+		+space
+		+link()(href="/login") login
+		+text , and try again.
