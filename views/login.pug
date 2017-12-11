@@ -8,7 +8,7 @@ block description
 	- description= "Gode ting Cphbusiness Denmark school project";
 
 block content
-	h1 Login
+	h3 Login
 	.row
 		.col-sm
 			form(id="login-form" name="login" action="/auth/login" method="POST")
@@ -33,6 +33,7 @@ block content
 						input#passwordSignup.form-control(type="password", placeholder="Password" required name="password")
 						small#usernameHelp.form-text.text-muted We"ll never share your credentials with anyone else.
 					button.btn.btn-primary(type="submit") Signup
+			.col-sm
 	if signupSuccess
 		+alert("success")= signupSuccess
 		.col-sm
