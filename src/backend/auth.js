@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
 	const username = req.body.username;
 	const password = req.body.password;
 
-	const loggedIn = await attemtLogin(username, password);
+	const loggedIn = await attemptLogin(username, password);
 	const tokenCookieName = 'token';
 	const tokenCookieValue = loggedIn.authorization;
 	const oneDayExpire = 1 * 24 * 60 * 60 * 1000;
@@ -58,7 +58,7 @@ function attemptSignup(username, password) {
 	});
 }
 
-function attemtLogin(username, password) {
+function attemptLogin(username, password) {
 	return new Promise((resolve, reject) => {
 		const backend = cnf.backend;
 		const loginEndpoint = cnf.endpoints.login;
