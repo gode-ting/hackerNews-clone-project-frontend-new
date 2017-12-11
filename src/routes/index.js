@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 function loadPosts() {
+	console.log('Loading all posts');
 	const backend = cnf.backend;
 	const allPostsEndpoint = cnf.endpoints.allPosts;
 	const endpoint = backend + allPostsEndpoint;

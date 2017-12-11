@@ -5,17 +5,18 @@ const bodyParser = require('body-parser');
 const cnf = require('cnf');
 const sass = require('node-sass-middleware');
 const atob = require('atob');
+const path = require('path');
 
 // Routes
-const comments = require('./routes/comments');
-const index = require('./routes/index');
-const login = require('./routes/login');
-const submit = require('./routes/submit');
+const commentsRoute = require('./routes/comments');
+const indexRoute = require('./routes/index');
+const loginRoute = require('./routes/login');
+const submitRoute = require('./routes/submit');
+const userRoute = require('./routes/user');
 const backendAuth = require('./backend/auth');
 const backendSubmit = require('./backend/submit');
 
 async function main() {
-	console.log('Main!');
 
 	const app = express();
 
@@ -32,7 +33,7 @@ async function main() {
 		})
 	);
 	app.use(express.static('public'));
-	app.set('views', 'views');
+	app.set('views', path.join(__dirname, '..', 'views'));
 	app.set('view engine', 'pug');
 	app.use((req, res, next) => {
 		const tokenCookie = req.cookies.token;
@@ -50,10 +51,11 @@ async function main() {
 	});
 
 	// Load routes
-	app.use('/', index);
-	app.use('/comments', comments);
-	app.use('/login', login);
-	app.use('/submit', submit);
+	app.use('/', indexRoute);
+	app.use('/comments', commentsRoute);
+	app.use('/login', loginRoute);
+	app.use('/submit', submitRoute);
+	app.use('/user', userRoute);
 	app.use('/auth', backendAuth);
 	app.use('/make-submit', backendSubmit);
 
