@@ -57,7 +57,7 @@ async function main() {
 	app.use('/auth', backendAuth);
 	app.use('/make-submit', backendSubmit);
 
-	const port = cnf.http.port;
+	const port = process.env.PORT || cnf.http.port;
 
 	app.listen(port, () => {
 		console.log(`Server running on port ${port}`);
