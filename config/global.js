@@ -4,6 +4,7 @@ module.exports = {
 		signup: '/user/signup',
 		login: '/login',
 		submit: '/api/post',
-		user: '/user?username='
+		user: '/user?username=',
+		item: '/item?id='
 	}
 };

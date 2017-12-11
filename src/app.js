@@ -10,6 +10,7 @@ const path = require('path');
 // Routes
 const commentsRoute = require('./routes/comments');
 const indexRoute = require('./routes/index');
+const itemRoute = require('./routes/item');
 const loginRoute = require('./routes/login');
 const submitRoute = require('./routes/submit');
 const userRoute = require('./routes/user');
@@ -54,6 +55,7 @@ async function main() {
 	app.use('/', indexRoute);
 	app.use('/comments', commentsRoute);
 	app.use('/login', loginRoute);
+	app.use('/item', itemRoute);
 	app.use('/submit', submitRoute);
 	app.use('/user', userRoute);
 	app.use('/auth', backendAuth);
